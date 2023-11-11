@@ -50,7 +50,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="lg:px-12 md:px-6 navbar bg-black text-white p-5 fixed z-10 opacity-60">
+    <div className="lg:px-12 md:px-6 navbar  text-golden font-bold uppercase p-5 fixed z-10 opacity-70 bg-white ">
       <div className="container mx-auto">
         <div className="hidden md:flex items-center ">
           <img src="" className="w-20" />
@@ -65,7 +65,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content mt-3 z-[1] p-5 space-y-3 shadow bg-base-200 text-black rounded-box w-52"
+              className="dropdown-content mt-3 z-[1] p-5 space-y-3 shadow  rounded-box w-52 bg-white"
             >
               {navLink}
             </ul>
