@@ -1,9 +1,32 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaBars } from 'react-icons/fa';
+import { useEffect, useState } from "react";
 
 
 
 const Navbar = () => {
+  const [scrolling, setScrolling] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setScrolling(true);
+    } else {
+      setScrolling(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navbarStyle = {
+    backgroundColor: scrolling ? "white" : "rgba(0, 0, 0, 0.2)",
+    color: scrolling ? "black" : "white",
+    // opacity: scrolling ? 1 : 0.5
+  };
+
   const navLink = (
     <>
       <li>
@@ -16,10 +39,10 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/addJob"
+          to="/menu"
           className=" hover:text-blue-500 transition duration-300"
         >
-          Add Job
+          Menu
         </NavLink>
       </li>
       <li>
@@ -50,7 +73,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="lg:px-12 md:px-6 navbar  text-golden font-bold uppercase p-5 fixed z-10 opacity-70 bg-white ">
+    <div className="lg:px-12 md:px-6 navbar  text-golden font-bold uppercase p-5 fixed z-10 opacity bg-white shadow-md" style={navbarStyle}>
       <div className="container mx-auto">
         <div className="hidden md:flex items-center ">
           <img src="" className="w-20" />

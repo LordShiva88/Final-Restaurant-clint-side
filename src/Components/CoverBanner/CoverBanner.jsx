@@ -1,23 +1,25 @@
 const CoverBanner = ({ img, coverTitle, coverDec }) => {
-  // `url(${img})`,
   return (
     <div
-      className="hero lg:h-[700px]"
+      className="hero md:min-h-[700px] h-auto"
       style={{
-        backgroundImage:
-          "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+        backgroundSize: "cover",
+        backgroundImage: `url(${img})`,
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "600px",
+        backgroundAttachment: "fixed",
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-center text-neutral-content">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-          <p className="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
-          </p>
-          <button className="btn btn-primary">Get Started</button>
+      <div className="hero-overlay bg-opacity-80"></div>
+      <div
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
+        className="w-3/4 text-white"
+      >
+        <div className="p-20 text-center max-w-2xl mx-auto">
+          <h1 className="text-5xl font-bold mb-5">{coverTitle}</h1>
+
+            <p className="">{coverDec}</p>
         </div>
       </div>
     </div>
