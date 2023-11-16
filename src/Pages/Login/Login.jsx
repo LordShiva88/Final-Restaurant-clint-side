@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SocialLogin from "../../Components/SocialLogin";
 import logImg from "../../assets/others/authentication1.png";
@@ -10,6 +10,7 @@ import {
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,6 +34,9 @@ const Login = () => {
       alert("Captcha Does Not Match");
     }
   };
+
+  const {name} = useContext(AuthContext)
+  console.log(name)
 
   return (
     <div
