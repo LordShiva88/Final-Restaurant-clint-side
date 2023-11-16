@@ -6,9 +6,6 @@ import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Reister/Register";
 
-
-
-
 const Router = createBrowserRouter([
   {
     path: '/',
