@@ -49,7 +49,7 @@ const Register = () => {
       }}
     >
       <div className="w-1/2  p-8">
-        <h1 className="text-2xl font-bold mb-8">Login</h1>
+        <h1 className="text-2xl font-bold mb-8">Register</h1>
         <form onSubmit={handleSubmit(handleCreateUser)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-600">
@@ -60,6 +60,20 @@ const Register = () => {
               placeholder="Name"
               className="mt-1 p-2 w-full border border-gray-300 rounded-md"
               {...register("name", { required: true })}
+            />
+            {errors.name && (
+              <span className="text-red-500">This field is required</span>
+            )}
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-600">
+              Photo Url
+            </label>
+            <input
+              type="text"
+              placeholder="Photo Url"
+              className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+              {...register("photo", { required: true })}
             />
             {errors.name && (
               <span className="text-red-500">This field is required</span>
@@ -118,7 +132,7 @@ const Register = () => {
               placeholder="Type This Captcha"
               className="mt-1 p-2 w-full border border-gray-300 rounded-md"
             />
-            {errors.captcha && (
+            {errors.photo && (
               <span className="text-red-500">This field is required</span>
             )}
           </div>
