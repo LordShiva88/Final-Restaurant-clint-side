@@ -24,7 +24,6 @@ const Menu = () => {
         coverTitle={"OUR MENU"}
         coverDec={"Would you like to try a dish?"}
       ></CoverBanner>
-
       <div className="space-y-20 mb-20">
         {/* todays Offered Section */}
         <HeadingTitle
@@ -34,42 +33,42 @@ const Menu = () => {
         <Container>
           <MenuCard menus={offered}></MenuCard>
         </Container>
-
         {/* Dessert Section */}
         <MenuCategory
           img={dessertImg}
           items={dessert}
-          title={"DESSERTS"}
+          title={"dessert"}
           dec={
             "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }
         ></MenuCategory>
-
         {/* Pizza Section */}
         <MenuCategory
           img={pizzaImg}
           items={pizza}
-          title={"PIZZA"}
+          title={"pizza"}
           dec={
             "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }
         ></MenuCategory>
-
         {/* Salad Section */}
         <MenuCategory
           img={saladImg}
           items={salad}
-          title={"SALAD"}
+          title={"salad"}
           dec={
             "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }
         ></MenuCategory>
+        <button className="btn btn-outline border-0 border-b-4 text-white border-white">
+          READ MORE
+        </button>
 
         {/* SOUPS Section */}
         <MenuCategory
           img={soupImg}
           items={soup}
-          title={"SOUP"}
+          title={"soup"}
           dec={
             "Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
           }

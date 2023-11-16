@@ -24,7 +24,6 @@ const Navbar = () => {
   const navbarStyle = {
     backgroundColor: scrolling ? "white" : "rgba(0, 0, 0, 0.2)",
     color: scrolling ? "black" : "white",
-    // opacity: scrolling ? 1 : 0.5
   };
 
   const navLink = (
@@ -32,7 +31,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className=" hover:text-blue-500 transition duration-300"
+          className="btnStyle"
         >
           Home
         </NavLink>
@@ -40,33 +39,33 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/menu"
-          className=" hover:text-blue-500 transition duration-300"
+          className="btnStyle"
         >
           Menu
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/post"
-          className=" hover:text-blue-500 transition duration-300"
+          to="/order/salad"
+          className="btnStyle"
         >
-          My Posted Job
+          Order
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/bids"
-          className=" hover:text-blue-500 transition duration-300"
+          to="/login"
+          className="btnStyle"
         >
-          My Bids
+          login 
         </NavLink>
       </li>
       <li>
         <NavLink
-          to="/request"
-          className="hover:text-blue-500 transition duration-300"
+          to="/register"
+          className="btnStyle"
         >
-          My Request
+          Register 
         </NavLink>
       </li>
     </>
@@ -88,7 +87,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content mt-3 z-[1] p-5 space-y-3 shadow  rounded-box w-52 bg-white"
+              className="dropdown-content mt-3 z-[1] space-y-5 shadow rounded-box w-52 btnStyle bg-white text-black py-5"
             >
               {navLink}
             </ul>

@@ -1,0 +1,14 @@
+.btnStyle {
+  padding: 8px 16px; 
+  border: none;
+  transition: all 0.3s; 
+  cursor: pointer;
+  font-weight: 700;
+}
+.btnStyle:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btnStyle:focus, .btnStyle:active {
+  border-bottom: 4px solid #D99904;
+  border-radius: 20px;
+}

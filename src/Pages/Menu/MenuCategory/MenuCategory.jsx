@@ -7,7 +7,7 @@ const MenuCategory = ({ items, img, title, dec }) => {
     <div className="space-y-10">
       <CoverBanner img={img} coverTitle={title} coverDec={dec}></CoverBanner>
       <Container>
-        <MenuCard menus={items}></MenuCard>
+        <MenuCard menus={items} title={title}></MenuCard>
       </Container>
     </div>
   );
