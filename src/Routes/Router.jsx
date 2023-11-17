@@ -5,6 +5,10 @@ import Menu from "../Pages/Menu/Menu/Menu";
 import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Reister/Register";
+import Contact from "../Pages/Contact/Contact";
+import Dashboard from "../Layout/Dashboard";
+import DeshHome from "../Pages/Dashboard/DeshboardHome/DeshHome";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 
 const Router = createBrowserRouter([
   {
@@ -14,6 +18,10 @@ const Router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
         path: '/menu',
@@ -33,7 +41,20 @@ const Router = createBrowserRouter([
       }
     ]
   },
-  
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'dashboard/home',
+        element: <DeshHome></DeshHome>
+      },
+      {
+        path: 'dashboard/cart',
+        element: <Cart></Cart>
+      },
+    ]
+  }
 ])
 
 export default Router;

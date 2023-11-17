@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
-import auth from "../Firebase.config";
+import auth from "../../Firebase.config";
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
@@ -67,3 +67,4 @@ const AuthProvider = ({ children }) => {
 };
 
 export default AuthProvider;
+

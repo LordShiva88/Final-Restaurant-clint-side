@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Container from "../../../Components/Container/Container";
 import CoverBanner from "../../../Components/CoverBanner/CoverBanner";
 import HeadingTitle from "../../../Components/HeadingTitle/HeadingTitle";
@@ -19,6 +20,9 @@ const Menu = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Bistro Boss || Menu</title>
+      </Helmet>
       <CoverBanner
         img={banner}
         coverTitle={"OUR MENU"}

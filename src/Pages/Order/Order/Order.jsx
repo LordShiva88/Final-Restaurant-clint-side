@@ -9,14 +9,13 @@ import Container from "../../../Components/Container/Container";
 import OrderTab from "../OrderTab/OrderTab";
 import { useParams } from "react-router-dom";
 import "react-tabs/style/react-tabs.css";
+import { Helmet } from "react-helmet";
 
 const Order = () => {
   const tabs = ["salad", "pizza", "dessert", "soup", "drinks"];
   const { category } = useParams();
-  console.log(category);
   const initialIndex = tabs.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialIndex);
-  console.log(initialIndex);
   const { menus } = useMenu();
   const drinks = menus.filter((item) => item.category === "drinks");
   const dessert = menus.filter((item) => item.category === "dessert");
@@ -25,7 +24,9 @@ const Order = () => {
   const pizza = menus.filter((item) => item.category === "pizza");
   return (
     <div>
-      p-
+      <Helmet>
+        <title>Bistro Boss || Order</title>
+      </Helmet>
       <CoverBanner
         img={banner}
         coverTitle={"OUR SHOP"}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import CallUs from "../../../Components/CallUs/CallUs";
 import Banner from "../Banner/Banner";
 import BistroBoss from "../BristroBoss/BistroBoss";
@@ -10,6 +11,9 @@ import Review from "../Review/Review";
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>Bistro Boss || Home</title>
+      </Helmet>
       <Banner></Banner>
       <div className="container mx-auto space-y-20">
         <OnlineOrder></OnlineOrder>
