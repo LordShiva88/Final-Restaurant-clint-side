@@ -12,49 +12,49 @@ import Cart from "../Pages/Dashboard/Cart/Cart";
 
 const Router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Main></Main>,
-    children:[
+    children: [
       {
-        path: '/',
-        element: <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: '/contact',
-        element: <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
-        path: '/menu',
-        element: <Menu></Menu>
+        path: "/menu",
+        element: <Menu></Menu>,
       },
       {
-        path: '/order/:category',
-        element: <Order></Order>
+        path: "/order/:category",
+        element: <Order></Order>,
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element: <Register></Register>
-      }
-    ]
+        path: "/register",
+        element: <Register></Register>,
+      },
+    ],
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <Dashboard></Dashboard>,
     children: [
       {
-        path: 'dashboard/home',
-        element: <DeshHome></DeshHome>
+        path: "dashboard/home",
+        element: <DeshHome></DeshHome>,
       },
       {
-        path: 'dashboard/cart',
-        element: <Cart></Cart>
+        path: "dashboard/cart",
+        element: <Cart></Cart>,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
 export default Router;

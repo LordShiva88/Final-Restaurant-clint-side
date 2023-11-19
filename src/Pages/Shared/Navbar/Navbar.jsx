@@ -7,7 +7,7 @@ import useCart from "../../../Hooks/useCart";
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const { user, logOut } = useAuth();
-  const [cart] = useCart()
+  const [cart] = useCart();
 
   const [scrolling, setScrolling] = useState(false);
 
@@ -25,11 +25,11 @@ const Navbar = () => {
     };
   }, []);
 
-  const handleLogOut = ()=>{
+  const handleLogOut = () => {
     logOut()
-    .then(res=> console.log(res))
-    .catch(error=>console.error(error))
-  }
+      .then((res) => console.log(res))
+      .catch((error) => console.error(error));
+  };
 
   const navbarStyle = {
     backgroundColor: scrolling ? "white" : "rgba(0, 0, 0, 0.2)",
@@ -89,7 +89,8 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex items-center">
-          <Link to={'dashboard/dashboard/cart'}
+          <Link
+            to={"dashboard/dashboard/cart"}
             type="button"
             className="m-1 ms-0 relative py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >
@@ -103,7 +104,11 @@ const Navbar = () => {
           </Link>
           <div className="navbar-end flex items-center">
             <div className="dropdown dropdown-end">
-              <label onClick={()=>setDropdownOpen(!isDropdownOpen)} tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <label
+                onClick={() => setDropdownOpen(!isDropdownOpen)}
+                tabIndex={0}
+                className="btn btn-ghost btn-circle avatar"
+              >
                 <div className="w-10 rounded-full">
                   {user?.photoURL ? (
                     <img src={user?.photoURL} alt="" />

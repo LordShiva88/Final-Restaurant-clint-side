@@ -1,29 +1,34 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Container from "../Components/Container/Container";
-import { FaCalendar, FaCartPlus, FaFileContract, FaHome } from "react-icons/fa";
-import { MdPayments, MdOutlineRateReview, MdContactMail, MdOutlineRestaurantMenu  } from "react-icons/md";
+import { FaCalendar, FaCartPlus, FaHome } from "react-icons/fa";
+import {
+  MdPayments,
+  MdOutlineRateReview,
+  MdContactMail,
+  MdOutlineRestaurantMenu,
+} from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import useCart from "../Hooks/useCart";
 
 const Dashboard = () => {
-  const [cart] = useCart()
+  const [cart] = useCart();
   return (
     <Container>
       <div className="flex">
         <div className="w-64 min-h-screen bg-[#D1A054] uppercase text-2xl">
           <ul className="menu p-4 space-y-4">
             <li>
-              <NavLink to={"dashboard/home"}>
+              <NavLink to={"/home"}>
                 <FaHome></FaHome> User Home
               </NavLink>
             </li>
             <li>
-              <NavLink to={"dashboard/reservation"}>
+              <NavLink to={"/reservation"}>
                 <FaCalendar></FaCalendar> reservation
               </NavLink>
             </li>
             <li>
-              <NavLink to={"dashboard/payment"}>
+              <NavLink to={"/payment"}>
                 <MdPayments></MdPayments> payment history
               </NavLink>
             </li>
@@ -34,7 +39,7 @@ const Dashboard = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"dashboard/review"}>
+              <NavLink to={"/review"}>
                 <MdOutlineRateReview></MdOutlineRateReview> add review
               </NavLink>
             </li>
@@ -51,17 +56,17 @@ const Dashboard = () => {
             </li>
             <li>
               <NavLink to="/contact">
-               <MdContactMail ></MdContactMail> Contact
+                <MdContactMail></MdContactMail> Contact
               </NavLink>
             </li>
             <li>
               <NavLink to="/menu">
-              <MdOutlineRestaurantMenu></MdOutlineRestaurantMenu>  Menu
+                <MdOutlineRestaurantMenu></MdOutlineRestaurantMenu> Menu
               </NavLink>
             </li>
             <li>
               <NavLink to="/order/salad">
-               <FaCartPlus></FaCartPlus> Order
+                <FaCartPlus></FaCartPlus> Order
               </NavLink>
             </li>
           </ul>

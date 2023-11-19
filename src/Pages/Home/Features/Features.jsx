@@ -14,7 +14,7 @@ const Features = () => {
       }}
     >
       <div className="hero-overlay bg-opacity-80"></div>
-      <div className="hero-content text-neutral-content">
+      <div className="hero-Fcontent text-neutral-content">
         <div>
           <HeadingTitle
             mainTitle={"FROM OUR MENU"}

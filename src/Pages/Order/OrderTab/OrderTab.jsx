@@ -1,6 +1,6 @@
 import OrderCard from "../OrderCard/OrderCard";
 
-const OrderTab = ({items}) => {
+const OrderTab = ({ items }) => {
   return (
     <div className="grid lg:grid-cols-3 gap-5 md:grid-cols-2">
       {items.map((item) => (

@@ -1,5 +1,3 @@
-
-
 const Bookings = () => {
   return (
     <div>

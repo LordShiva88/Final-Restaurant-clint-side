@@ -17,7 +17,7 @@ import Container from "../../Components/Container/Container";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
-  const {signUp} = useContext(AuthContext)
+  const { signUp } = useContext(AuthContext);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -58,7 +58,10 @@ const Register = () => {
             <title>Bistro Boss || Order</title>
           </Helmet>
           <h1 className="text-2xl font-bold mb-8">Register</h1>
-          <form onSubmit={handleSubmit(handleCreateUser)} className="space-y-4 shadow-lg p-5">
+          <form
+            onSubmit={handleSubmit(handleCreateUser)}
+            className="space-y-4 shadow-lg p-5"
+          >
             <div>
               <label className="block text-sm font-medium text-gray-600">
                 Name

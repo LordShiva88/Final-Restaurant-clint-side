@@ -18,7 +18,7 @@ const OrderCard = ({ items }) => {
         email: user.email,
         name: item.name,
         image: item.image,
-        price: item.price
+        price: item.price,
       };
       const res = await axios.post("/carts", cartItem);
       console.log(res.data);

@@ -1,14 +1,11 @@
-
 import HeadingTitle from "../../../Components/HeadingTitle/HeadingTitle";
 import useMenu from "../../../Hooks/useMenu";
 import MenuCard from "../../../Components/MenuCard/MenuCard";
 
-
 const Menu = () => {
-  const {menus, loading} = useMenu()
-  const popular = menus.filter(menu => menu.category === 'popular')
+  const { menus, loading } = useMenu();
+  const popular = menus.filter((menu) => menu.category === "popular");
 
-  
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -16,16 +13,14 @@ const Menu = () => {
       </div>
     );
   }
-  
+
   return (
     <div>
       <HeadingTitle
-      subTitle={'---Check it out---'}
-      mainTitle={'FROM OUR MENU'}
+        subTitle={"---Check it out---"}
+        mainTitle={"FROM OUR MENU"}
       ></HeadingTitle>
-      <MenuCard
-      menus={popular}
-      ></MenuCard>
+      <MenuCard menus={popular}></MenuCard>
     </div>
   );
 };

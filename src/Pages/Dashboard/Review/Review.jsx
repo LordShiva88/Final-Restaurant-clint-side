@@ -1,5 +1,3 @@
-
-
 const Review = () => {
   return (
     <div>

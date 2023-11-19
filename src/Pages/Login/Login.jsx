@@ -18,7 +18,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const redirectTo = location.state?.from?.pathname || '/'; 
+  const redirectTo = location.state?.from?.pathname || "/";
 
   const { logIn } = useAuth();
 
@@ -42,7 +42,7 @@ const Login = () => {
         })
         .catch((error) => console.error(error));
     } else {
-      alert('Captcha Does Not Match');
+      alert("Captcha Does Not Match");
     }
   };
 

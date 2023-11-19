@@ -1,5 +1,3 @@
-
-
 const DeshHome = () => {
   return (
     <div>

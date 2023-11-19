@@ -44,7 +44,6 @@ const Review = () => {
                 readOnly
               />
             </div>
-
             <div className="flex justify-center">
               <FaQuoteRight className="text-[#D99904] text-5xl"></FaQuoteRight>
             </div>
