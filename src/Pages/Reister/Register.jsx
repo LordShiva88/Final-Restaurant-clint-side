@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin";
-
 import bg from "../../assets/others/authentication.png";
 import img from "../../assets/others/authentication2-removebg-preview.png";
 
@@ -15,6 +14,9 @@ import {
 import { Helmet } from "react-helmet";
 import Container from "../../Components/Container/Container";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
+import toast from "react-hot-toast";
+import ImageHost from "../../Hooks/ImageHost";
 
 const Register = () => {
   const { signUp } = useContext(AuthContext);
@@ -31,16 +33,32 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const handleCreateUser = (data) => {
+  const handleCreateUser = async (data) => {
+    // Hosting image in ibb and get the user image
+    const image = { image: data.photo[0] };
+    let userImage;
+    ImageHost(image).then((getImage) => {
+      userImage = getImage;
+    });
+
     if (validateCaptcha(data.captcha)) {
-      signUp(data.email, data.password).then((res) => {
-        console.log(res.user);
-      });
+      signUp(data.email, data.password)
+        .then((result) => {
+          console.log(result.user);
+          toast.success("Successfully Registered!");
+          updateProfile(result.user, {
+            displayName: data.name,
+            photoURL: userImage,
+          });
+        })
+        .catch((error) => {
+          const errorMessage = error.message;
+          toast.error(errorMessage);
+        });
     } else {
       alert("captcha Not match");
     }
   };
-
   return (
     <Container>
       <div
@@ -76,17 +94,18 @@ const Register = () => {
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-600">
-                Photo Url
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <label className="block text-sm font-medium text-gray-600">
+                  Upload An Picture
+                </label>
               </label>
               <input
-                type="text"
-                placeholder="Photo Url"
-                className="mt-1 p-2 w-full border border-gray-300 rounded-md"
+                type="file"
+                className="file-input file-input-bordered w-full max-w-xs"
                 {...register("photo", { required: true })}
               />
-              {errors.name && (
+              {errors.photo && (
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
@@ -119,6 +138,7 @@ const Register = () => {
                 placeholder="Enter Your Password"
                 className="mt-1 p-2 w-full border border-gray-300 rounded-md"
                 {...register("password", { required: true })}
+                autoComplete="username"
               />
               <span
                 onClick={() => setShowPassword(!showPassword)}

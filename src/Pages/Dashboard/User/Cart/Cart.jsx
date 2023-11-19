@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
-import HeadingTitle from "../../../Components/HeadingTitle/HeadingTitle";
-import useCart from "../../../Hooks/useCart";
+import HeadingTitle from "../../../../Components/HeadingTitle/HeadingTitle";
+import useCart from "../../../../Hooks/useCart";
 import { AiOutlineDelete } from "react-icons/ai";
-import useAxios from "../../../Hooks/useAxios";
+import useAxios from "../../../../Hooks/useAxios";
 
 const Cart = () => {
   const [cart, refetch] = useCart();

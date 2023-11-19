@@ -7,8 +7,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Reister/Register";
 import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Layout/Dashboard";
-import DeshHome from "../Pages/Dashboard/DeshboardHome/DeshHome";
-import Cart from "../Pages/Dashboard/Cart/Cart";
+import DeshHome from "../Pages/Dashboard/User/DeshboardHome/DeshHome";
+import Cart from "../Pages/Dashboard/User/Cart/Cart";
 
 const Router = createBrowserRouter([
   {
