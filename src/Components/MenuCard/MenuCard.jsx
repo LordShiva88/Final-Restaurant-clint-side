@@ -26,9 +26,9 @@ const MenuCard = ({ menus, title }) => {
         ))}
       </div>
       <div className="flex justify-center">
-        <Link to={`/order/${title}`}>
+        <Link to={`/order/${title ? title: 'salad'}`}>
           <button className="border-b-4 border-[#D99904] rounded-lg hover:bg-black transition-all text-[#D99904] font-bold btn">
-            ORDER YOUR FAVOURITE FOOD
+            ORDER YOUR FAVORITE FOOD
           </button>
         </Link>
       </div>

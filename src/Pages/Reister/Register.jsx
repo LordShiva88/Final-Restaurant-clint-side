@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Components/SocialLogin";
 import bg from "../../assets/others/authentication.png";
 import img from "../../assets/others/authentication2-removebg-preview.png";
@@ -17,9 +17,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import toast from "react-hot-toast";
 import ImageHost from "../../Hooks/ImageHost";
+import useAxios from "../../Hooks/useAxios";
 
 const Register = () => {
   const { signUp } = useContext(AuthContext);
+  const axios = useAxios();
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -34,31 +37,42 @@ const Register = () => {
   } = useForm();
 
   const handleCreateUser = async (data) => {
-    // Hosting image in ibb and get the user image
-    const image = { image: data.photo[0] };
-    let userImage;
-    ImageHost(image).then((getImage) => {
-      userImage = getImage;
-    });
+    try {
+      const image = { image: data.photo[0] };
+      const userImage = await ImageHost(image);
 
-    if (validateCaptcha(data.captcha)) {
-      signUp(data.email, data.password)
-        .then((result) => {
-          console.log(result.user);
-          toast.success("Successfully Registered!");
-          updateProfile(result.user, {
-            displayName: data.name,
-            photoURL: userImage,
-          });
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          toast.error(errorMessage);
+      if (validateCaptcha(data.captcha)) {
+        const result = await signUp(data.email, data.password);
+        const { user } = result;
+
+        await updateProfile(user, {
+          displayName: data.name,
+          photoURL: userImage,
         });
-    } else {
-      alert("captcha Not match");
+
+        const userInfo = {
+          name: data.name,
+          email: data.email,
+          image: userImage,
+        };
+
+        const response = await axios.post("/users", userInfo);
+
+        if (response.data.insertedId > 0) {
+          toast.success("Registered Successfully!!!");
+          navigate("/");
+        } else {
+          toast.error("Registration failed");
+        }
+      } else {
+        alert("Captcha does not match");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("An error occurred during registration.");
     }
   };
+
   return (
     <Container>
       <div
@@ -68,7 +82,6 @@ const Register = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "100vh",
         }}
       >
         <div className="md:max-w-xl w-full p-10 flex-1">

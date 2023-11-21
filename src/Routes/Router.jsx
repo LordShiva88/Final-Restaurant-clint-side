@@ -8,7 +8,18 @@ import Register from "../Pages/Reister/Register";
 import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Layout/Dashboard";
 import DeshHome from "../Pages/Dashboard/User/DeshboardHome/DeshHome";
+import Reservation from "../Pages/Dashboard/User/Reservation/Reservation";
+import Payment from "../Pages/Dashboard/User/Payment/Payment";
+import Bookings from "../Pages/Dashboard/User/Bookings/BookingsAdmin";
+import AddItem from "../Pages/Dashboard/Admin/AddItem/AddItem";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome/AdminHome";
+import Users from "../Pages/Dashboard/Admin/Users/Users";
+import UpdateItem from "../Pages/Dashboard/Admin/UpdateItem/UpdateItem";
+import BookingsAdmin from "../Pages/Dashboard/User/Bookings/BookingsAdmin";
 import Cart from "../Pages/Dashboard/User/Cart/Cart";
+import Review from "../Pages/Dashboard/User/Review/Review";
+import AdminRoute from "./AdminRoute";
+import PrivateRouter from "./PrivateRouter";
 
 const Router = createBrowserRouter([
   {
@@ -46,12 +57,95 @@ const Router = createBrowserRouter([
     element: <Dashboard></Dashboard>,
     children: [
       {
-        path: "dashboard/home",
-        element: <DeshHome></DeshHome>,
+        path: "/dashboard",
+        element: (
+          <PrivateRouter>
+            {" "}
+            <DeshHome></DeshHome>
+          </PrivateRouter>
+        ),
       },
       {
-        path: "dashboard/cart",
-        element: <Cart></Cart>,
+        path: "cart",
+        element: (
+          <PrivateRouter>
+            <Cart></Cart>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "reservation",
+        element: (
+          <PrivateRouter>
+            {" "}
+            <Reservation></Reservation>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <PrivateRouter>
+            <Payment></Payment>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "review",
+        element: (
+          <PrivateRouter>
+            <Review></Review>
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "booking",
+        element: (
+          <PrivateRouter>
+            <Bookings></Bookings>
+          </PrivateRouter>
+        ),
+      },
+      // Admin Router
+      {
+        path: "/dashboard/home",
+        element: (
+          <AdminRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "addItem",
+        element: (
+          <AdminRoute>
+            <AddItem></AddItem>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageBookings",
+        element: (
+          <AdminRoute>
+            <BookingsAdmin></BookingsAdmin>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allUser",
+        element: (
+          <AdminRoute>
+            <Users></Users>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "update",
+        element: (
+          <AdminRoute>
+            <UpdateItem></UpdateItem>
+          </AdminRoute>
+        ),
       },
     ],
   },

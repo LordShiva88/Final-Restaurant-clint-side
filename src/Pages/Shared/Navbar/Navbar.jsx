@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import img from "../../../assets/others/profile.png";
 import useCart from "../../../Hooks/useCart";
+import useAdmin from "../../../Hooks/useAdmin";
 const Navbar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const { user, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
 
   const [scrolling, setScrolling] = useState(false);
@@ -58,6 +60,20 @@ const Navbar = () => {
           Order
         </NavLink>
       </li>
+      {user && isAdmin && (
+        <li>
+          <NavLink to="/dashboard/" className="btnStyle">
+            Dashboard
+          </NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li>
+          <NavLink to="/dashboard" className="btnStyle">
+            Dashboard
+          </NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -90,7 +106,7 @@ const Navbar = () => {
 
         <div className="navbar-end flex items-center">
           <Link
-            to={"dashboard/dashboard/cart"}
+            to={"dashboard/cart"}
             type="button"
             className="m-1 ms-0 relative py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
           >

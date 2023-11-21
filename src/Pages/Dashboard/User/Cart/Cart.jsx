@@ -2,11 +2,11 @@ import Swal from "sweetalert2";
 import HeadingTitle from "../../../../Components/HeadingTitle/HeadingTitle";
 import useCart from "../../../../Hooks/useCart";
 import { AiOutlineDelete } from "react-icons/ai";
-import useAxios from "../../../../Hooks/useAxios";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 
 const Cart = () => {
   const [cart, refetch] = useCart();
-  const axios = useAxios();
+  const axiosSecure = useAxiosSecure();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   const handleDelete = (id) => {
@@ -20,7 +20,7 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`/carts/${id}`).then((res) => {
+        axiosSecure.delete(`/carts/${id}`).then((res) => {
           console.log(res);
           if (res.data.deletedCount > 0) {
             refetch();

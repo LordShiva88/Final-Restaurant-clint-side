@@ -55,7 +55,6 @@ const Login = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "100vh",
         }}
       >
         <div className="md:max-w-xl w-full p-10 flex-1">
@@ -99,6 +98,7 @@ const Login = () => {
               <span
                 onClick={() => setShowPassword(!showPassword)}
                 className="mt-5 absolute inset-y-0 right-0 flex items-center pr-2 cursor-pointer"
+                autoComplete="user"
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
